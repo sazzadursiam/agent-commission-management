@@ -18,16 +18,16 @@ active
 
 
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h3 class="card-title mb-0">
                             Agents
                         </h3>
-                        <a href="{{route('admin.agents.create')}}" class="btn btn-sm btn-info float-right"><i
-                                class="fas fa-plus-circle mr-1"></i>Add New</a>
+                        <a href="{{route('admin.agents.create')}}" class="btn btn-sm btn-info"><i
+                                class="fas fa-plus-circle me-1"></i>Add New</a>
                     </div>
 
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table" id="example1">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -64,11 +64,11 @@ active
                                             <i class="fas fa-edit"></i>
                                         </a>
 
-                                        <form class="d-inline" action="" method="POST">
+                                        <form class="d-inline" action="{{route('admin.agents.destroy',$item->id)}}"
+                                            method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button data-toggle="tooltip" data-placement="top" title="Delete"
-                                                type="submit"
+                                            <button data-placement="top" title="Delete" type="submit"
                                                 onclick="return confirm('Are you sure you want to delete?');"
                                                 type="button" class="btn btn-danger btn-sm mb-1">
                                                 <i class="fa fa-trash"></i>
@@ -95,8 +95,7 @@ active
 @endsection
 @section('custom_js')
 <script>
-    $('[data-toggle="tooltip"]').tooltip();
-        $("#example1").DataTable({
+    $("#example1").DataTable({
         "responsive": true,
         "lengthChange": true,
         "autoWidth": false,

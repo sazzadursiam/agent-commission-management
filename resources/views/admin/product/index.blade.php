@@ -14,20 +14,17 @@ active
 
             <section class="col-lg-12">
 
-
-
-
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h3 class="card-title mb-0">
                             Products Management
                         </h3>
                         <a href="{{route('admin.products.create')}}" class="btn btn-sm btn-info float-right"><i
-                                class="fas fa-plus-circle mr-1"></i>Add New</a>
+                                class="fas fa-plus-circle me-1"></i>Add New</a>
                     </div>
 
                     <div class="card-body">
-                        <table id="example1" class="table table-bordered table-striped">
+                        <table id="example1" class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -110,7 +107,6 @@ active
 @endsection
 @section('custom_js')
 <script>
-    $('[data-toggle="tooltip"]').tooltip();
     $("#example1").DataTable({
         "responsive": true, 
         "lengthChange": true, 

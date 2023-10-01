@@ -9,21 +9,17 @@ active
 <section class="content py-4">
     <div class="container-fluid">
 
-
         <div class="row">
 
             <section class="col-lg-12 connectedSortable">
 
-
-
-
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h3 class="card-title mb-0">
                             Add New Agent
                         </h3>
-                        <a href="{{route('admin.agents.index')}}" class="btn btn-sm btn-info float-right"><i
-                                class="fas fa-folder-open mr-1"></i>Agent List</a>
+                        <a href="{{route('admin.agents.index')}}" class="btn btn-sm btn-info"><i
+                                class="fas fa-folder-open me-1"></i>Agent List</a>
                     </div>
 
                     <div class="card-body">
@@ -113,6 +109,6 @@ active
 @endsection
 @section('custom_js')
 <script>
-    
+
 </script>
 @endsection

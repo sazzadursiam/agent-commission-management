@@ -6,138 +6,69 @@ Dashboard
 active
 @endsection
 @section('content')
-<section class="content py-4">
-    <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3>150</h3>
+<div class="container-fluid flex-grow-1 container-p-y">
+    <div class="row">
 
-                        <p>Products</p>
+        <div class="col-lg-12 col-md-12 order-1">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="fw-semibold d-block mb-1">Profit</span>
+                            <h3 class="card-title mb-2">$12,628</h3>
+                        </div>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-bag"></i>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            <span class="fw-semibold d-block mb-1">Profit</span>
+                            <h3 class="card-title mb-2">$12,628</h3>
+                            
+                        </div>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            <span class="fw-semibold d-block mb-1">Profit</span>
+                            <h3 class="card-title mb-2">$12,628</h3>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            <span class="fw-semibold d-block mb-1">Profit</span>
+                            <h3 class="card-title mb-2">$12,628</h3>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Total Revenue -->
+        <div class="col-12 col-lg-12 order-2 order-md-3 order-lg-2 mb-4">
+            <div class="card">
+                <div class="row row-bordered g-0">
+                    <div class="col-md-12">
+                        <h5 class="card-header m-0 me-2 pb-3">Total Revenue</h5>
+                        <div id="totalRevenueChart" class="px-2"></div>
+                    </div>
+                    
                 </div>
             </div>
-
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3>44</h3>
-
-                        <p>Agents</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
-        <div class="row">
-            <!-- Left col -->
-            <section class="col-lg-6">
-                <!-- Custom tabs (Charts with tabs)-->
-
-
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <i class="fa fa-users mr-2"></i>
-                            Recent Agents
-                        </h3>
-
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>IC Number</th>
-                                    <th>Created At</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Alex</td>
-                                    <td>1111</td>
-                                    <td>10 Sep 2023</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Sam</td>
-                                    <td>1112</td>
-                                    <td>10 Sep 2023</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-
-            </section>
-            <!-- /.Left col -->
-            <!-- right col (We are only adding the ID to make the widgets sortable)-->
-            <section class="col-lg-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <i class="fab fa-product-hunt mr-2"></i>
-                            Recent Products
-                        </h3>
-
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>SKU</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Product 1</td>
-                                    <td>1111</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Product 2</td>
-                                    <td>2222</td>
-                                    <td>
-                                        <span class="badge bg-danger">In-active</span>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-            </section>
-            <!-- right col -->
-        </div>
-        <!-- /.row (main row) -->
-    </div><!-- /.container-fluid -->
-</section>
+        <!--/ Total Revenue -->
+        
+    </div>
+    
+</div>
 @endsection

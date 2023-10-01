@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Admin\AgentController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\KnowledgeBaseController;
 use App\Http\Controllers\Admin\MasterController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\StockController;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +35,9 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('dashboard', [MasterController::class, 'dashboard'])->name('dashboard');
             Route::resource('agents', AgentController::class);
             Route::resource('products', ProductController::class);
+            Route::resource('knowledge-base', KnowledgeBaseController::class);
+
+            Route::get('stocks', [StockController::class, 'index'])->name('stock.index');
 
             Route::get('logout', [AuthController::class, 'logout'])->name('logout');
         });

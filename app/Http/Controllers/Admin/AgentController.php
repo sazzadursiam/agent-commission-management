@@ -75,9 +75,8 @@ class AgentController extends Controller
      */
     public function show($id)
     {
-        $agent = User::where('user_type',0)->where('id',$id)->first();
-        if($agent){
-            
+        $agent = User::where('user_type', 0)->where('id', $id)->first();
+        if ($agent) {
         }
         abort(404);
     }
@@ -113,6 +112,24 @@ class AgentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $model = User::where('user_type', 0)->where('id', $id)->first();
+        if ($model) {
+            //remove old image form folder if new image comes
+            if ($model->profile_photo != null || $model->profile_photo != "") {
+                $profile_photo_file = public_path($model->profile_photo);
+                if (file_exists($profile_photo_file)) {
+                    unlink($profile_photo_file);
+                }
+            }
+            if ($model->attachment != null || $model->attachment != "") {
+                $attachment_file = public_path($model->attachment);
+                if (file_exists($attachment_file)) {
+                    unlink($attachment_file);
+                }
+            }
+            $model->delete();
+            return back()->with('error_message', 'Delete Successful');
+        }
+        abort(404);
     }
 }

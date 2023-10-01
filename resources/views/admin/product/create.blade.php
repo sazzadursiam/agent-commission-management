@@ -15,12 +15,12 @@ active
             <section class="col-lg-12">
 
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h3 class="card-title mb-0">
                             Add New Product
                         </h3>
-                        <a href="{{route('admin.products.index')}}" class="btn btn-sm btn-info float-right"><i
-                                class="fas fa-folder-open mr-1"></i>Product List</a>
+                        <a href="{{route('admin.products.index')}}" class="btn btn-sm btn-info"><i
+                                class="fas fa-folder-open me-1"></i>Product List</a>
                     </div>
 
                     <div class="card-body">

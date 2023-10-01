@@ -27,7 +27,7 @@ active
                     </div>
 
                     <div class="card-body">
-                        <form action="{{route('admin.agents.store')}}" method="POST">
+                        <form action="{{route('admin.agents.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="form-group col-lg-6 mb-1">
@@ -77,6 +77,13 @@ active
                                     @enderror
                                 </div>
                                 <div class="form-group col-lg-6 mb-1">
+                                    <label for="profile_photo">Profile Photo</label>
+                                    <input type="file" name="profile_photo" id="profile_photo" class="form-control">
+                                    @error('profile_photo')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-lg-6 mb-1">
                                     <label for="attachment">Attachment</label>
                                     <input type="file" name="attachment" id="attachment" class="form-control">
                                     @error('attachment')
@@ -86,8 +93,8 @@ active
                             </div>
                             <div class="row pt-3">
                                 <div class="col-lg-12">
-                                    <button type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Create
-                                        & Continue</button>
+                                    <button type="submit" class="btn btn-primary"><i
+                                            class="fas fa-save mr-2"></i>Create</button>
                                 </div>
                             </div>
 
@@ -106,6 +113,6 @@ active
 @endsection
 @section('custom_js')
 <script>
-    $('[data-toggle="tooltip"]').tooltip()
+    
 </script>
 @endsection

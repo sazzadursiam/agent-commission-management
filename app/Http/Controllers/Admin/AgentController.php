@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AgentController extends Controller
@@ -14,7 +16,8 @@ class AgentController extends Controller
      */
     public function index()
     {
-        return view('admin.agent.index');
+        $agents = User::where('user_type', 0)->latest()->get();
+        return view('admin.agent.index', compact(['agents']));
     }
 
     /**
@@ -35,7 +38,33 @@ class AgentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
+        $request->validate([
+            'name' => 'required',
+        ]);
+        $model = new User();
+        $model->name = $request->name;
+        $model->gender = $request->gender;
+        $model->dob = Carbon::parse($request->dob)->format('Y-m-d');
+        $model->ic_number = $request->ic_number;
+        $model->level = $request->level;
+        $model->downline = $request->downline;
+        if ($request->hasFile('attachment')) {
+            $img = $request->file('attachment');
+            $new_name = rand() . '.' . $request->attachment->getClientOriginalExtension();
+            $path = '/common/agent/attachment/';
+            $img->move(public_path($path), $new_name);
+            $model->attachment = $path . $new_name;
+        }
+        if ($request->hasFile('profile_photo')) {
+            $img = $request->file('profile_photo');
+            $new_name = rand() . '.' . $request->profile_photo->getClientOriginalExtension();
+            $path = '/common/agent/profile_photo/';
+            $img->move(public_path($path), $new_name);
+            $model->profile_photo = $path . $new_name;
+        }
+        $model->save();
+        return redirect()->route('admin.agents.index')->with('message', 'Added Successful.');
     }
 
     /**
@@ -46,7 +75,11 @@ class AgentController extends Controller
      */
     public function show($id)
     {
-        //
+        $agent = User::where('user_type',0)->where('id',$id)->first();
+        if($agent){
+            
+        }
+        abort(404);
     }
 
     /**

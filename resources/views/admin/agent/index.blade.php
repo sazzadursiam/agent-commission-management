@@ -31,18 +31,27 @@ active
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Photo</th>
                                     <th>Name</th>
                                     <th>IC Number</th>
-                                    <th>Created At</th>
+                                    <th>Joined At</th>
                                     <th>Options</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($agents as $item)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Alex</td>
-                                    <td>1111</td>
-                                    <td>10 Sep 2023</td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>
+                                        @if($item->profile_photo)
+                                        <img src="{{asset($item->profile_photo)}}" alt="" style="height: 50px">
+                                        @else
+                                        <i class="fa fa-user" style="font-size: 27px"></i>
+                                        @endif
+                                    </td>
+                                    <td>{{$item->name}}</td>
+                                    <td>{{$item->ic_number}}</td>
+                                    <td>{{$item->created_at->format('Y-m-d')}}</td>
                                     <td>
                                         <a data-toggle="tooltip" data-placement="top" title="View" href="" type="button"
                                             class="btn btn-primary btn-sm mb-1">
@@ -67,6 +76,8 @@ active
                                         </form>
                                     </td>
                                 </tr>
+                                @endforeach
+
 
                             </tbody>
                         </table>

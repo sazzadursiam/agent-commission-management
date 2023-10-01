@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2023 at 04:06 PM
+-- Generation Time: Sep 30, 2023 at 04:59 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -98,11 +98,12 @@ CREATE TABLE `personal_access_tokens` (
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `profile_photo` varchar(255) NOT NULL,
+  `profile_photo` varchar(255) DEFAULT NULL,
+  `gender` varchar(50) DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `ic_number` varchar(255) DEFAULT NULL,
   `level` varchar(255) DEFAULT NULL,
@@ -118,8 +119,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `phone`, `email_verified_at`, `password`, `profile_photo`, `dob`, `ic_number`, `level`, `downline`, `attachment`, `user_type`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ACM Admin', 'info@acm.com', '', NULL, '$2y$10$FYIMBM6CzUeE68xqj1R0H.GF41jHBMebGvS/PMKj8WyziOtQVh3oe', '', NULL, NULL, NULL, NULL, NULL, 1, NULL, '2023-09-30 13:34:07', '2023-09-30 13:34:07');
+INSERT INTO `users` (`id`, `name`, `email`, `phone`, `email_verified_at`, `password`, `profile_photo`, `gender`, `dob`, `ic_number`, `level`, `downline`, `attachment`, `user_type`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'ACM Admin', 'info@acm.com', '', NULL, '$2y$10$FYIMBM6CzUeE68xqj1R0H.GF41jHBMebGvS/PMKj8WyziOtQVh3oe', '', NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2023-09-30 13:34:07', '2023-09-30 13:34:07'),
+(2, 'Alex', NULL, NULL, NULL, NULL, NULL, 'm', '1995-10-10', '123456', '1', '5', NULL, 0, NULL, '2023-09-30 08:34:15', '2023-09-30 08:34:15'),
+(3, 'Abdul Wakil', NULL, NULL, NULL, NULL, NULL, 'm', '2023-08-27', '123457', '1', '3', NULL, 0, NULL, '2023-09-30 08:55:17', '2023-09-30 08:55:17'),
+(4, 'wakill', NULL, NULL, NULL, NULL, NULL, 'm', '2023-08-27', '123457', '1', '3', NULL, 0, NULL, '2023-09-30 08:56:36', '2023-09-30 08:56:36'),
+(5, 'sam', NULL, NULL, NULL, NULL, '/common/agent/profile_photo/1931623073.jpg', 'm', '2023-03-27', NULL, '2', '3', NULL, 0, NULL, '2023-09-30 08:57:47', '2023-09-30 08:57:47');
 
 --
 -- Indexes for dumped tables
@@ -186,7 +191,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

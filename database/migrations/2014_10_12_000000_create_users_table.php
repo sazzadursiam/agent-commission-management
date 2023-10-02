@@ -28,7 +28,9 @@ return new class extends Migration
             $table->string('downline')->nullable();
             $table->string('attachment')->nullable();
             $table->tinyInteger('user_type')->default(0)->comment("1:admin");
+            $table->tinyInteger('status')->default(1)->comment("1:Active, 0:In-active");
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

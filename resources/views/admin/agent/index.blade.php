@@ -34,8 +34,11 @@ active
                                     <th>Photo</th>
                                     <th>Name</th>
                                     <th>IC Number</th>
+                                    <th>Level</th>
                                     <th>Joined At</th>
+                                    <th>Status</th>
                                     <th>Options</th>
+                                    <th>Active</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,9 +54,18 @@ active
                                     </td>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->ic_number}}</td>
+                                    <td>{{$item->level}}</td>
                                     <td>{{$item->created_at->format('Y-m-d')}}</td>
                                     <td>
-                                        <a data-toggle="tooltip" data-placement="top" title="View" href="" type="button"
+                                        @if($item->status==1)
+                                        <span class="badge bg-success">Active</span>
+                                        @else
+                                        <span class="badge bg-danger">In-active</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a data-placement="top" title="View"
+                                            href="{{route('admin.agents.show',$item->id)}}" type="button"
                                             class="btn btn-primary btn-sm mb-1">
                                             <i class="fa fa-eye"></i>
 
@@ -64,7 +76,7 @@ active
                                             <i class="fas fa-edit"></i>
                                         </a>
 
-                                        <form class="d-inline" action="{{route('admin.agents.destroy',$item->id)}}"
+                                        {{-- <form class="d-inline" action="{{route('admin.agents.destroy',$item->id)}}"
                                             method="POST">
                                             @csrf
                                             @method('DELETE')
@@ -73,7 +85,10 @@ active
                                                 type="button" class="btn btn-danger btn-sm mb-1">
                                                 <i class="fa fa-trash"></i>
                                             </button>
-                                        </form>
+                                        </form> --}}
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger btn-sm">Inactivate</button>
                                     </td>
                                 </tr>
                                 @endforeach

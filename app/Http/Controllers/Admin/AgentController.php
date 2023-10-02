@@ -77,6 +77,7 @@ class AgentController extends Controller
     {
         $agent = User::where('user_type', 0)->where('id', $id)->first();
         if ($agent) {
+            return view('admin.agent.info', compact(['agent']));
         }
         abort(404);
     }

@@ -4,8 +4,11 @@ use App\Http\Controllers\Admin\AgentController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\KnowledgeBaseController;
 use App\Http\Controllers\Admin\MasterController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SalesReportController;
 use App\Http\Controllers\Admin\StockController;
+use App\Http\Controllers\Admin\WarehouseController;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
@@ -30,8 +33,13 @@ Route::group(['prefix' => 'admin'], function () {
 
             Route::get('stocks', [StockController::class, 'index'])->name('stock.index');
 
+            Route::get('warehouse-stocks', [WarehouseController::class, 'stock'])->name('warehouse-stock');
+            Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
+            Route::get('withdrawal-request', [OrderController::class, 'withdrawRequest'])->name('withdraw-request');
+
+            Route::get('sales-report', [SalesReportController::class, 'index'])->name('sales-report');
+
             Route::get('logout', [AuthController::class, 'logout'])->name('logout');
         });
     });
 });
-

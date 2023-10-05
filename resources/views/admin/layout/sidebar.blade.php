@@ -48,6 +48,30 @@
                 <div>Stock</div>
             </a>
         </li>
+        <li class="menu-item @yield('warehouse_menu_active')">
+            <a href="{{route('admin.warehouse-stock')}}" class="menu-link">
+                <i class="menu-icon fa-solid fa-warehouse"></i>
+                <div>Warehouse Stock</div>
+            </a>
+        </li>
+        <li class="menu-item @yield('order_menu_active')">
+            <a href="{{route('admin.orders.index')}}" class="menu-link">
+                <i class="menu-icon fa-brands fa-first-order-alt"></i>
+                <div>Orders</div>
+            </a>
+        </li>
+        <li class="menu-item @yield('withdraw_request_menu_active')">
+            <a href="{{route('admin.withdraw-request')}}" class="menu-link">
+                <i class="menu-icon fa-solid fa-money-bill-transfer"></i>
+                <div>Withdrawal Request</div>
+            </a>
+        </li>
+        <li class="menu-item @yield('sales_report_request_menu_active')">
+            <a href="{{route('admin.sales-report')}}" class="menu-link">
+                <i class="menu-icon fa-solid fa-industry"></i>
+                <div>Sales Report</div>
+            </a>
+        </li>
 
     </ul>
 </aside>

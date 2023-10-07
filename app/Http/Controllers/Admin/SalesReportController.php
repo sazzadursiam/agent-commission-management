@@ -9,6 +9,7 @@ class SalesReportController extends Controller
 {
     public function index(Request $request)
     {
+       
         return view('admin.reports.sales-report');
     }
 }

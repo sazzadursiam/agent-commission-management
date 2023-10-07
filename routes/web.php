@@ -28,6 +28,7 @@ Route::group(['prefix' => 'admin'], function () {
 
             Route::get('dashboard', [MasterController::class, 'dashboard'])->name('dashboard');
             Route::resource('agents', AgentController::class);
+            Route::post('agents/activation', [AgentController::class, 'activation'])->name('agents.activation');
             Route::resource('products', ProductController::class);
             Route::resource('knowledge-base', KnowledgeBaseController::class);
 
@@ -37,7 +38,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
             Route::get('withdrawal-request', [OrderController::class, 'withdrawRequest'])->name('withdraw-request');
 
-            Route::get('sales-report', [SalesReportController::class, 'index'])->name('sales-report');
+            // Route::get('sales-report', [SalesReportController::class, 'index'])->name('sales-report');
 
             Route::get('logout', [AuthController::class, 'logout'])->name('logout');
         });

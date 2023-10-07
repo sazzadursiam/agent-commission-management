@@ -26,9 +26,13 @@ return new class extends Migration
             $table->string('ic_number')->nullable();
             $table->string('level')->nullable();
             $table->string('downline')->nullable();
+            $table->string('user_name')->nullable();
+            $table->string('role')->nullable();
+            $table->string('up_line_name')->nullable();
+            $table->text('memo')->nullable();
             $table->string('attachment')->nullable();
             $table->tinyInteger('user_type')->default(0)->comment("1:admin");
-            $table->tinyInteger('status')->default(1)->comment("1:Active, 0:In-active");
+            $table->tinyInteger('status')->default(1)->comment("0:Pending, 1: Approved, 2: blocked, 3: Rejected");
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

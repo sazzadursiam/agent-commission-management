@@ -133,4 +133,34 @@ class AgentController extends Controller
         }
         abort(404);
     }
+
+    public function activation(Request $request)
+    {
+
+        $model = User::find($request->agent_id);
+
+        if ($model) {
+            if ($request->activation_type == 'block') {
+                $model->memo = $request->memo;
+                $model->status = 2;
+            } else if ($request->activation_type == 'reject') {
+                $model->memo = $request->memo;
+                $model->status = 3;
+            } else if ($request->activation_type == 'approve') {
+                $model->memo = null;
+                $model->status = 1;
+            }
+            $model->save();
+            // return redirect()->route('admin.agents.index')->with('message', 'Status Update Successful...!');
+            return response()->json([
+                'status' => 200,
+                'message' => 'Status Update Successful.'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Not Found'
+            ]);
+        }
+    }
 }

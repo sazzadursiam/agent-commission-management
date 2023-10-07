@@ -8,6 +8,7 @@
     <title>@yield('page_title') | ACM</title>
 
     <meta name="description" content="" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
@@ -199,7 +200,7 @@
     @if (Session::has('error_message'))
     <script>
         var error_message = {!! json_encode(Session::get('error_message')) !!};
-            toastr.success(error_message, {
+            toastr.error(error_message, {
                 timeOut: 5000
             });
     </script>

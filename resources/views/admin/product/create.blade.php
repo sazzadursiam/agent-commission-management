@@ -134,7 +134,7 @@ active
 
                             <div class="row pt-3">
                                 <div class="col-lg-12">
-                                    <button type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Create
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-save me-2"></i>Create
                                         & Continue</button>
                                 </div>
                             </div>

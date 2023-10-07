@@ -57,10 +57,14 @@ active
                                     <td>{{$item->level}}</td>
                                     <td>{{$item->created_at->format('Y-m-d')}}</td>
                                     <td>
-                                        @if($item->status==1)
-                                        <span class="badge bg-success">Active</span>
-                                        @else
-                                        <span class="badge bg-danger">In-active</span>
+                                        @if($item->status==0)
+                                        <span class="badge bg-danger">Pending</span>
+                                        @elseif($item->status==1)
+                                        <span class="badge bg-success">Approved</span>
+                                        @elseif($item->status==2)
+                                        <span class="badge bg-danger">Blocked</span>
+                                        @elseif($item->status==3)
+                                        <span class="badge bg-warning">Rejected</span>
                                         @endif
                                     </td>
                                     <td>

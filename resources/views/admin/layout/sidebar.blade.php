@@ -66,12 +66,12 @@
                 <div>Withdrawal Request</div>
             </a>
         </li>
-        <li class="menu-item @yield('sales_report_request_menu_active')">
+        {{-- <li class="menu-item @yield('sales_report_request_menu_active')">
             <a href="{{route('admin.sales-report')}}" class="menu-link">
                 <i class="menu-icon fa-solid fa-industry"></i>
                 <div>Sales Report</div>
             </a>
-        </li>
+        </li> --}}
 
     </ul>
 </aside>

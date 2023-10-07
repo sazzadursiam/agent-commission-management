@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2023 at 04:40 PM
+-- Generation Time: Oct 07, 2023 at 03:20 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -52,13 +52,6 @@ CREATE TABLE `knowledge_bases` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `knowledge_bases`
---
-
-INSERT INTO `knowledge_bases` (`id`, `uuid`, `k_file`, `k_video`, `created_at`, `updated_at`) VALUES
-(1, '22a22c28-f1f4-41aa-93da-581c80e19c06', '/common/knowledgebase/k_file/196691537.txt', NULL, '2023-10-01 08:14:04', '2023-10-01 08:14:04');
-
 -- --------------------------------------------------------
 
 --
@@ -80,7 +73,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2023_10_01_133105_create_knowledge_bases_table', 2);
+(5, '2023_10_01_133105_create_knowledge_bases_table', 1);
 
 -- --------------------------------------------------------
 
@@ -112,6 +105,14 @@ CREATE TABLE `personal_access_tokens` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `personal_access_tokens`
+--
+
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `created_at`, `updated_at`) VALUES
+(1, 'App\\Models\\User', 3, 'acmfc03hfgufwevcxy3523jjhvcx', 'd71abf38228b997a0386eb7f78d263193f517044d9d44b82c711f894d7c69b0f', '[\"*\"]', NULL, '2023-10-07 02:38:02', '2023-10-07 02:38:02'),
+(2, 'App\\Models\\User', 4, 'acmfc03etuyndvsgtr7635sdfhfds', '8970fc3cbebc4d95dd11b68bc9516c32b6e7da8ed865632cee259cc6d31df391', '[\"*\"]', NULL, '2023-10-07 07:08:47', '2023-10-07 07:08:47');
+
 -- --------------------------------------------------------
 
 --
@@ -126,14 +127,20 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `profile_photo` varchar(255) DEFAULT NULL,
-  `gender` varchar(50) DEFAULT NULL,
+  `gender` varchar(255) DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `ic_number` varchar(255) DEFAULT NULL,
   `level` varchar(255) DEFAULT NULL,
   `downline` varchar(255) DEFAULT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  `up_line_name` varchar(255) DEFAULT NULL,
+  `memo` text DEFAULT NULL,
   `attachment` varchar(255) DEFAULT NULL,
   `user_type` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1:admin',
+  `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0:Pending, 1: Approved, 2: blocked, 3: Rejected',
   `remember_token` varchar(100) DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -142,12 +149,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `phone`, `email_verified_at`, `password`, `profile_photo`, `gender`, `dob`, `ic_number`, `level`, `downline`, `attachment`, `user_type`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ACM Admin', 'info@acm.com', '', NULL, '$2y$10$FYIMBM6CzUeE68xqj1R0H.GF41jHBMebGvS/PMKj8WyziOtQVh3oe', '', NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2023-09-30 13:34:07', '2023-09-30 13:34:07'),
-(2, 'Alex', NULL, NULL, NULL, NULL, NULL, 'm', '1995-10-10', '123456', '1', '5', NULL, 0, NULL, '2023-09-30 08:34:15', '2023-09-30 08:34:15'),
-(3, 'Abdul Wakil', NULL, NULL, NULL, NULL, NULL, 'm', '2023-08-27', '123457', '1', '3', NULL, 0, NULL, '2023-09-30 08:55:17', '2023-09-30 08:55:17'),
-(4, 'wakill', NULL, NULL, NULL, NULL, NULL, 'm', '2023-08-27', '123457', '1', '3', NULL, 0, NULL, '2023-09-30 08:56:36', '2023-09-30 08:56:36'),
-(5, 'sam', NULL, NULL, NULL, NULL, '/common/agent/profile_photo/1931623073.jpg', 'm', '2023-03-27', NULL, '2', '3', NULL, 0, NULL, '2023-09-30 08:57:47', '2023-09-30 08:57:47');
+INSERT INTO `users` (`id`, `name`, `email`, `phone`, `email_verified_at`, `password`, `profile_photo`, `gender`, `dob`, `ic_number`, `level`, `downline`, `user_name`, `role`, `up_line_name`, `memo`, `attachment`, `user_type`, `status`, `remember_token`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'ACM Admin', 'info@acm.com', NULL, NULL, '$2y$10$FYIMBM6CzUeE68xqj1R0H.GF41jHBMebGvS/PMKj8WyziOtQVh3oe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, '2023-10-03 05:48:04', '2023-10-03 05:48:04'),
+(2, 'Agent 1', NULL, NULL, NULL, NULL, '/common/agent/profile_photo/1268573800.jpg', 'm', '2023-04-04', '123457', '2', '3', NULL, NULL, NULL, 'Blocked', NULL, 0, 2, NULL, NULL, '2023-10-02 23:49:52', '2023-10-07 06:51:21'),
+(3, 'Sazzadur Rahman', NULL, NULL, NULL, '$2y$10$nA.8OkpAQ8Z6DOT4KhxHP.PksGAaa96ANZ0MyFqwwIaX5QQGWDZp.', NULL, NULL, '2023-10-07', NULL, NULL, NULL, 'sazzad', NULL, NULL, 'Rejected for some reason', NULL, 0, 3, NULL, NULL, '2023-10-07 02:38:02', '2023-10-07 06:50:20'),
+(4, 'Sazzadur Rahman', NULL, NULL, NULL, '$2y$10$QF7AbrwO9wOnlrdKDj.nyeojQRy1J1eCDbbyA.O5eEbu0DwgKZMtK', NULL, NULL, '2023-10-07', NULL, NULL, NULL, 'sazzadur', NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2023-10-07 02:53:01', '2023-10-07 06:45:49');
 
 --
 -- Indexes for dumped tables
@@ -208,7 +214,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `knowledge_bases`
 --
 ALTER TABLE `knowledge_bases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -220,13 +226,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

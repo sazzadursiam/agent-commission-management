@@ -19,10 +19,7 @@ class AuthController extends Controller
                 'name' => 'required',
                 'user_name' => 'required|unique:users,user_name',
                 'password' => 'required|min:4',
-            ],
-            // [
-            //     "name.required" => "Name can't be empty",
-            // ]
+            ]
         );
 
         if ($validator->fails()) {
@@ -43,6 +40,9 @@ class AuthController extends Controller
         }
         if ($request->has('level')) {
             $model->level = $request->level;
+        }
+        if ($request->has('downline')) {
+            $model->downline = $request->downline;
         }
         if ($request->has('role')) {
             $model->role = $request->role;

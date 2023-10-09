@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2023 at 03:20 PM
+-- Generation Time: Oct 09, 2023 at 02:11 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -55,6 +55,29 @@ CREATE TABLE `knowledge_bases` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `levels`
+--
+
+CREATE TABLE `levels` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `moq` double DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0:Inactive, 1:Active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `levels`
+--
+
+INSERT INTO `levels` (`id`, `name`, `moq`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Level 1', 11, 1, '2023-10-09 05:52:25', '2023-10-09 06:02:04'),
+(2, 'Level 2', 5, 1, '2023-10-09 06:02:23', '2023-10-09 06:02:23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -73,7 +96,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2023_10_01_133105_create_knowledge_bases_table', 1);
+(5, '2023_10_01_133105_create_knowledge_bases_table', 1),
+(7, '2023_10_09_111733_create_levels_table', 2);
 
 -- --------------------------------------------------------
 
@@ -173,6 +197,12 @@ ALTER TABLE `knowledge_bases`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `levels`
+--
+ALTER TABLE `levels`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -217,10 +247,16 @@ ALTER TABLE `knowledge_bases`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `levels`
+--
+ALTER TABLE `levels`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

@@ -72,6 +72,12 @@
                 <div>Sales Report</div>
             </a>
         </li> --}}
+        <li class="menu-item @yield('level_menu_active')">
+            <a href="{{route('admin.levels.index')}}" class="menu-link">
+                <i class="menu-icon fa-solid fa-signal"></i>
+                <div>Levels</div>
+            </a>
+        </li>
 
     </ul>
 </aside>

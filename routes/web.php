@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AgentController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\KnowledgeBaseController;
+use App\Http\Controllers\Admin\LevelController;
 use App\Http\Controllers\Admin\MasterController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
@@ -39,6 +40,8 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('withdrawal-request', [OrderController::class, 'withdrawRequest'])->name('withdraw-request');
 
             // Route::get('sales-report', [SalesReportController::class, 'index'])->name('sales-report');
+
+            Route::resource('levels',LevelController::class);
 
             Route::get('logout', [AuthController::class, 'logout'])->name('logout');
         });

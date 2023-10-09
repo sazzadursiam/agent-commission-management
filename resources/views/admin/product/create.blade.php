@@ -27,7 +27,7 @@ active
                         <form action="{{route('admin.products.store')}}" method="POST">
                             @csrf
                             <!-- Basic Information -->
-                            <div class="card">
+                            <div class="card mb-3">
                                 <div class="card-header">
                                     <h3 class="card-title">
                                         Basic Information
@@ -81,7 +81,7 @@ active
                                 </div>
                             </div>
                             <!-- Basic Information -->
-                            <div class="card">
+                            <div class="card mb-3">
                                 <div class="card-header">
                                     <h3 class="card-title">
                                         Specification
@@ -119,7 +119,7 @@ active
                                 </div>
                             </div>
 
-                            <div class="card">
+                            <div class="card mb-3">
                                 <div class="card-header">
                                     <h3 class="card-title">
                                         Sales Information
@@ -132,7 +132,7 @@ active
                                 </div>
                             </div>
 
-                            <div class="row pt-3">
+                            <div class="row">
                                 <div class="col-lg-12">
                                     <button type="submit" class="btn btn-primary"><i class="fas fa-save me-2"></i>Create
                                         & Continue</button>

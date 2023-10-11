@@ -46,6 +46,7 @@ class LevelController extends Controller
             ]
         );
         $model = new Level();
+        $model->title = $request->title;
         $model->name = $request->name;
         $model->moq = $request->moq;
         $model->save();
@@ -90,6 +91,7 @@ class LevelController extends Controller
     {
         $level = Level::find($id);
         if ($level) {
+            $level->title = $request->title;
             $level->name = $request->name;
             $level->moq = $request->moq;
             $level->save();

@@ -56,6 +56,7 @@
                                             </a>
                                             {{-- @endcan --}}
                                             {{-- @can('role-delete') --}}
+                                            @if($role->id !=1 && $role->id != 2)
                                             <form class="d-inline"
                                                 action="{{ route('admin.roles.destroy', $role->id) }}" method="POST">
                                                 @csrf
@@ -67,6 +68,7 @@
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                             </form>
+                                            @endif
                                             {{-- @endcan --}}
                                         </td>
                                     </tr>

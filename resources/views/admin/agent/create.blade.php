@@ -60,7 +60,13 @@ active
                                 </div>
                                 <div class="form-group col-lg-6 mb-1">
                                     <label for="level">Level</label>
-                                    <input type="text" name="level" id="level" class="form-control">
+                                    <select name="level" id="level" class="form-select">
+                                        <option value="">Select Level</option>
+                                        @foreach ($levels as $level)
+                                        <option value="{{$level->id}}">{{$level->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    {{-- <input type="text" name="level" id="level" class="form-control"> --}}
                                     @error('level')
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror

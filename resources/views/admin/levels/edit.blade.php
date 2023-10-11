@@ -27,16 +27,23 @@ active
                             @csrf
                             @method('PUT')
                             <div class="row">
-                                <div class="form-group col-lg-6 mb-1">
-                                    <label for="name">Title <span class="text-danger">*</span></label>
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="Level Title" required value="{{$level->name}}">
+                                <div class="form-group col-lg-4 mb-1">
+                                    <label for="title">Title <span class="text-danger">*</span></label>
+                                    <input type="text" id="title" name="title" class="form-control" placeholder="Level Title" required value="{{$level->title}}">
+                                    @error('title')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-lg-4 mb-1">
+                                    <label for="name">Name <span class="text-danger">*</span></label>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Level Name" required value="{{$level->name}}">
                                     @error('name')
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 
                                 
-                                <div class="form-group col-lg-6 mb-1">
+                                <div class="form-group col-lg-4 mb-1">
                                     <label for="moq">MOQ</label>
                                     <input type="number" min="0" step="0.10" name="moq" id="moq" class="form-control" value="{{$level->moq}}">
                                     @error('moq')

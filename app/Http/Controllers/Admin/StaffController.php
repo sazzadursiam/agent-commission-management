@@ -30,7 +30,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'DESC')->get();
+        $users = User::where('user_type',1)->orderBy('id', 'DESC')->get();
         return view('admin.staff.index', compact(['users']));
     }
 

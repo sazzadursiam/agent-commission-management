@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Level;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ class AgentController extends Controller
      */
     public function create()
     {
-        return view('admin.agent.create');
+        $levels = Level::get();
+        return view('admin.agent.create', compact(['levels']));
     }
 
     /**

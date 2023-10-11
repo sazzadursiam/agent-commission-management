@@ -30,6 +30,7 @@ active
                                 <tr>
                                     <th>#</th>
                                     <th>Level Title</th>
+                                    <th>Level Name</th>
                                     <th>MOQ</th>
                                     <th>Options</th>
                                 </tr>
@@ -39,6 +40,7 @@ active
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
 
+                                    <td>{{$item->title}}</td>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->moq}}</td>
                                     <td>

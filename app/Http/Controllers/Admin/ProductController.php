@@ -30,9 +30,7 @@ class ProductController extends Controller
         $data = $response['data'];
         $data = json_encode($data);
         $data = json_decode($data);
-        // return response()->json([
-        //     'data' => $data
-        // ]);
+
         // if data is null
         if ($data == null) {
             $data = Product::latest()->first();
@@ -49,7 +47,9 @@ class ProductController extends Controller
             $product->data = json_encode($data);
             $product->save();
         }
-
+        return response()->json([
+            'data' => $data
+        ]);
         // return with $products
         return view('admin.product.index',  ['data' => $data]);
     }

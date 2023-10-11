@@ -87,7 +87,7 @@ active
                                                 <i class="fas fa-edit"></i>
                                             </a>
 
-                                            {{-- <form class="d-inline"
+                                            <form class="d-inline"
                                                 action="{{route('admin.agents.destroy',$item->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
@@ -96,7 +96,7 @@ active
                                                     type="button" class="btn btn-danger btn-sm mb-1">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
-                                            </form> --}}
+                                            </form>
                                         </td>
                                         <td>
                                             <button class="btn btn-danger btn-sm">Inactivate</button>
